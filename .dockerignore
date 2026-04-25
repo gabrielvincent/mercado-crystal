@@ -1,0 +1,10 @@
+.git
+.env
+.codex
+.agents
+.claude
+node_modules
+lib
+bin
+mercado-crystal
+public/css/tailwind.css

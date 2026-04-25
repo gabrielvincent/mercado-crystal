@@ -1,0 +1,29 @@
+app = 'mercado'
+primary_region = 'gig'
+
+[build]
+dockerfile = 'Dockerfile'
+
+[experimental]
+machine_config = 'fly-machine-config.json'
+container = 'web'
+
+[env]
+PORT = '3000'
+HOST = '0.0.0.0'
+STAGE = 'prod'
+REDIS_URL = 'redis://localhost:6379/0'
+CRYSTAL_PATH = 'src:lib:/usr/bin/../share/crystal/src'
+
+[http_service]
+internal_port = 3000
+force_https = true
+auto_stop_machines = 'stop'
+auto_start_machines = true
+min_machines_running = 1
+processes = ['app']
+
+[[vm]]
+memory = '512mb'
+cpu_kind = 'shared'
+cpus = 1

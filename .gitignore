@@ -1,0 +1,18 @@
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+/node_modules/
+/public/css/tailwind.css
+
+# Local environment and editor/agent state
+.env
+.env.*
+!.env.example
+.codex
+.claude/
+.agents/
+
+# Local build artifacts
+/mercado-crystal

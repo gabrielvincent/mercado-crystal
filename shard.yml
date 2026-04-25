@@ -1,0 +1,23 @@
+name: mercado-crystal
+version: 0.1.0
+
+authors:
+  - Gabriel Vincent <gabriel@vincent.es>
+
+targets:
+  mercado-crystal:
+    main: src/mercado-crystal.cr
+
+crystal: ">= 1.20.0"
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+  kemal-session:
+    github: kemalcr/kemal-session
+  kemal-session-redis-engine:
+    github: crystal-garage/kemal-session-redis-engine
+  avram:
+    github: luckyframework/avram

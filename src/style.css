@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@source "../src/components";
+
+:root {
+  font-family: Inconsolata, mono;
+}
+
+[x-cloak] {
+  display: none !important;
+}

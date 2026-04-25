@@ -1,0 +1,38 @@
+[tools]
+watchexec = "latest"
+
+[tasks.dev]
+description = "Run Tailwind and the Kemal server together"
+run = """
+set -e
+trap 'trap - INT TERM EXIT; kill 0' INT TERM EXIT
+
+mise run css:dev &
+mise watch server --restart --clear &
+
+wait
+"""
+
+[tasks."css:build"]
+description = "Build Tailwind CSS"
+hide = true
+run = "pnpm exec tailwindcss -i ./src/style.css -o ./public/css/tailwind.css --minify"
+
+[tasks."css:dev"]
+description = "Rebuild Tailwind CSS when component files change"
+hide = true
+run = "mise watch css:build --glob 'src/components/*.cr' --glob 'src/style.css' --clear"
+
+[tasks.server]
+description = "Run the Kemal server"
+hide = true
+sources = [
+    "src/**/*.cr",
+    "shard.yml",
+    "shard.lock",
+    ".env",
+]
+run = """
+. ./.env
+crystal run src/mercado-crystal.cr
+"""

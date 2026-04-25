@@ -1,0 +1,33 @@
+{
+  "containers": [
+    {
+      "name": "web",
+      "image": "registry.fly.io/mercado:latest",
+      "env": {
+        "HOST": "0.0.0.0",
+        "PORT": "3000",
+        "STAGE": "prod",
+        "REDIS_URL": "redis://localhost:6379/0"
+      },
+      "secrets": [
+        {
+          "env_var": "DATABASE_CONNECTION_STRING"
+        },
+        {
+          "env_var": "SESSION_SECRET"
+        }
+      ],
+      "depends_on": [
+        {
+          "name": "redis",
+          "condition": "started"
+        }
+      ]
+    },
+    {
+      "name": "redis",
+      "image": "redis:7-alpine",
+      "cmd": ["redis-server", "--save", "", "--appendonly", "no"]
+    }
+  ]
+}

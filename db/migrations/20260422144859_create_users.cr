@@ -1,0 +1,14 @@
+class CreateUsers::V20260422144859 < Avram::Migrator::Migration::V1
+  def migrate
+    create :users do
+      primary_key id : Int64
+      add_timestamps
+      add email : String, unique: true
+      add encrypted_password : String
+    end
+  end
+
+  def rollback
+    drop :users
+  end
+end

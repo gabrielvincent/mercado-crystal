@@ -1,0 +1,27 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "printWidth": 80,
+    "htmlWhitespaceSensitivity": "ignore",
+    "vueIndentScriptAndStyle": false,
+    "singleAttributePerLine": false,
+    "experimentalSortImports": {
+        "groups": [
+            ["builtin"],
+            ["external", "type-external"],
+            ["internal", "type-internal"],
+            ["parent", "type-parent"],
+            ["sibling", "type-sibling"],
+            ["index", "type-index"]
+        ]
+    },
+    "experimentalTailwindcss": {
+        "stylesheet": "src/style.css",
+        "attributes": ["class", "className"],
+        "functions": ["clsx", "cn"],
+        "preserveWhitespace": true
+    }
+}
